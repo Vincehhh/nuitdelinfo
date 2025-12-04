@@ -1206,3 +1206,15 @@
 {
 	color: var(--pink-400);
 }
+
+#visualiser
+{
+	position: sticky;
+	inset: 0;
+	/*width: 100vw;
+	height: 100vh;*/
+	display: block;
+	z-index: -1;
+	pointer-events: none;
+	background: transparent;
+}
