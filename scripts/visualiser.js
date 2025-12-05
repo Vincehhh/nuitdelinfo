@@ -6,6 +6,7 @@ let analyser;
 let dataArray;
 let animationId;
 let processor;
+let contentWrapper;
 // Initialize Web Audio API using ScriptProcessorNode as workaround
 function initAudio()
 {
@@ -116,6 +117,15 @@ function initVisualizer()
 	const stopBtn = document.getElementById('stopBtn');
 	if (!startBtn || !stopBtn) return;
 	// Start visualizer
+	contentWrapper = document.querySelector('.content-wrapper');
+	canvas.style.position = 'fixed';
+	canvas.style.top = '0';
+	canvas.style.left = '0';
+	canvas.style.zIndex = '-1';
+	const chatbotToggle = document.getElementById('chatbot-toggle');
+	const chatbotWindow = document.getElementById('chatbot-window');
+	if (chatbotToggle) chatbotToggle.style.zIndex = '10000';
+	if (chatbotWindow) chatbotWindow.style.zIndex = '9999';
 	startBtn.addEventListener('click', () =>
 	{
 		console.log('Start clicked');
@@ -143,7 +153,7 @@ function initVisualizer()
 		ctx.fillStyle = '#000000';
 		canvas.style.visibility = 'hidden';
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
-		document.body.style.filter = '';
+		if (contentWrapper) contentWrapper.style.filter = '';
 	});
 }
 
@@ -169,5 +179,8 @@ function applyPageFilterFromFFT(dataArray)
 	const hue = level * 40;
 	const brightness = 1 + level * 0.2;
 	const saturate = 1 + level * 0.5;
-	document.body.style.filter = `hue-rotate(${hue}deg) ` + `brightness(${brightness}) ` + `saturate(${saturate}) `;
+	if (contentWrapper)
+	{
+		contentWrapper.style.filter = `hue-rotate(${hue}deg) ` + `brightness(${brightness}) ` + `saturate(${saturate}) `;
+	}
 }

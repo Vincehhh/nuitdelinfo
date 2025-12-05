@@ -237,7 +237,7 @@ function showFinalResult()
 	const restart = document.createElement('button');
 	restart.className = 'btn btn-secondary';
 	restart.textContent = 'Recommencer';
-	restart.style.marginTop = '20px';
+	restart.style.marginTop = '1.25rem';
 	restart.onclick = () =>
 	{
 		currentQuestion = 0;
@@ -267,8 +267,8 @@ function createBadgesSection()
                 <div class="pillar-icon">🎉</div>
                 <h3>Contenu Secret Débloqué !</h3>
                 <p style="margin: 1rem 0;">Félicitations ! Voici votre récompense exclusive :</p>
-                <div style="background: var(--bg-void); padding: 1rem; border-radius: 8px;">
-                    <p><strong>🎁 Code :</strong> <code style="background: linear-gradient(135deg, #a855f7, #d946ef); padding: 0.3rem 0.8rem; border-radius: 4px; color: white;">${SECRET_REWARD.code}</code></p>
+                <div style="background: var(--bg-void); padding: 1rem; border-radius: 0.5rem;">
+                    <p><strong>🎁 Code :</strong> <code style="background: linear-gradient(135deg, #a855f7, #d946ef); padding: 0.3rem 0.8rem; border-radius: 0.25rem; color: white;">${SECRET_REWARD.code}</code></p>
                     <p style="color: #a3e635; margin-top: 0.5rem;">${SECRET_REWARD.discount}</p>
                 </div>
                 <a href="${SECRET_REWARD.videoUrl}" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">🎬 Vidéo Exclusive</a>
@@ -286,7 +286,7 @@ function createBadgesSection()
 		style.id = 'badges-styles';
 		style.textContent = `
             .badges-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-            .badge-item { text-align: center; padding: 1rem 1.5rem; border-radius: 8px; background: #24203a; border: 1px solid #3d3554; min-width: 120px; }
+            .badge-item { text-align: center; padding: 1rem 1.5rem; border-radius: 0.5rem; background: #24203a; border: 0.0625rem solid #3d3554; min-width: 7.5rem; }
             .badge-item.earned { border-color: #a855f7; background: rgba(168, 85, 247, 0.15); }
             .badge-item.locked { opacity: 0.4; }
             .badge-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
